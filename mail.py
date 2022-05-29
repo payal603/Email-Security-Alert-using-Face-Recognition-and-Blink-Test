@@ -8,7 +8,7 @@ import datetime
 
 def send_mail(content,subject):
     fromaddr = "payalrgaik@gmail.com"
-    toaddr = "payal.gaikwad@cumminscollege.in"
+    toaddr = "secure.gaikwad@gmail.com"
     # instance of MIMEMultipart
     msg = MIMEMultipart()
     # storing the senders email address  
@@ -28,7 +28,7 @@ def send_mail(content,subject):
     msg.attach(MIMEText(body,'plain'))
     # open the file to be sent
     filename = "test.jpeg"
-    attachment = open(r"C:\Users\dell\Downloads\Github projects\god\test.jpeg", "rb")
+    attachment = open(r"C:\Users\dell\Downloads\god\test.jpeg", "rb")
     # instance of MIMEBase and named as p
     p = MIMEBase('application', 'octet-stream')
     # To change the payload into encoded form

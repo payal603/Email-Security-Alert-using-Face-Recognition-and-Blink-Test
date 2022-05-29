@@ -10,40 +10,40 @@ reco=1
 
 # Get a reference to webcam #0 
 print("[INFO] sampling frames from webcam...")
-video_capture = cv2.VideoCapture(0)
+video_capture = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 out = cv2.VideoWriter('output.avi', fourcc, 20.0, (640, 480))
   
 # Load a sample picture and learn how to recognize it.
-harry_image = face_recognition.load_image_file(r"C:\Users\dell\Downloads\Github projects\god\known/harry_potter.jpg")
+harry_image = face_recognition.load_image_file("known/harry_potter.jpg")
 harry_face_encoding = face_recognition.face_encodings(harry_image)[0]
 
 
 # Load a second sample picture and learn how to recognize it.
-rachana_image = face_recognition.load_image_file(r"C:\Users\dell\Downloads\Github projects\god\known/rachana_chowta.jpg")
-rachana_face_encoding = face_recognition.face_encodings(rachana_image)[0]
+pichai_image = face_recognition.load_image_file("known/pichai.png")
+pichai_face_encoding = face_recognition.face_encodings(pichai_image)[0]
 
 
 # Load a third sample picture and learn how to recognize it.
-rithika_image = face_recognition.load_image_file(r"C:\Users\dell\Downloads\Github projects\god\known/rithika_chowta.jpg")
-rithika_face_encoding = face_recognition.face_encodings(rithika_image)[0]
+selena_image = face_recognition.load_image_file("known/selena.png")
+selena_face_encoding = face_recognition.face_encodings(selena_image)[0]
 
 # Load a third sample picture and learn how to recognize it.
-payal_image = face_recognition.load_image_file(r"C:\Users\dell\Downloads\Github projects\god\known/Payal.jpeg")
+payal_image = face_recognition.load_image_file("known/Payal.jpeg")
 payal_face_encoding = face_recognition.face_encodings(payal_image)[0]
 
 
 # Create arrays of known face encodings and their names
 known_face_encodings = [
-    rachana_face_encoding,
-    rithika_face_encoding,
+    pichai_face_encoding,
+    selena_face_encoding,
     harry_face_encoding,
     payal_face_encoding,
     
 ]
 known_face_names = [
-    "Rachana",
-    "Rithika",
+    "Sundar Pichai",
+    "Selena Gomez",
     "Harry Potter",
     "Payal"
 ]
@@ -111,11 +111,11 @@ while True:
     out.write(frame)
     if 'Unknown' in face_names:
          # To prevent sending multiple emails when the face is in the frame for a long time       
-	    if (time.time()-os.path.getctime(r'C:\Users\dell\Downloads\Github projects\god/test.jpeg')) > 30:
+	    if (time.time()-os.path.getctime(r'C:\Users\dell\Downloads\god/test.jpeg')) > 30:
              reco=0
              img = cv2.imwrite("test.jpeg",frame) 
 
-    if (time.time()-os.path.getctime(r'C:\Users\dell\Downloads\Github projects\god/test.jpeg')) > 30:
+    if (time.time()-os.path.getctime(r'C:\Users\dell\Downloads\god/test.jpeg')) > 30:
              
              img = cv2.imwrite("test.jpeg",frame) 
                     
@@ -125,13 +125,6 @@ while True:
     if cv2.waitKey(1) & 0XFF==ord('q'):
         break
         
-
-       
-
-          
-               
-    		
-
    
 
 # Release handle to the webcam

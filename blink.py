@@ -83,9 +83,10 @@ while True:
         key = cv2.waitKey(1)
         if key == 27:
             break    
-if blink==1:
-    print('blinking') 
-           
+#if blink==1:
+  #  print('blinking') 
+#else:
+ #   print("Blink was not detected..So no access for you")           
  
         
 
